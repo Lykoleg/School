@@ -3,9 +3,9 @@ import com.school.Model.*;
 import com.school.Service.*;
 public class Main {
     public static void main(String[] args){
-        CourseService сourseService = new CourseService();
-        Course course = сourseService.createNewCourse();
-        Course course1 = сourseService.createNewCourse();
+        CourseService courseService = new CourseService();
+        Course course = courseService.createNewCourse();
+        Course course1 = courseService.createNewCourse();
 
         // викликаємо конструктор HWService і зберігаємо те що він повертає в змінну
         HomeworkService homeworkService = new HomeworkService();
@@ -18,5 +18,7 @@ public class Main {
         Lecture lecture1 =  lectureService.createNewLecture();
         Lecture lecture2 =  lectureService.createNewLecture();
         Lecture lecture3 =  lectureService.createNewLecture();
+        Lecture lecture4 = lectureService.createNewLecture();
+        Lecture lecture5 = lectureService.createNewLecture();
     }
 }
