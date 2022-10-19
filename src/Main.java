@@ -18,5 +18,6 @@ public class Main {
         Lecture lecture1 =  lectureService.createNewLecture();
         Lecture lecture2 =  lectureService.createNewLecture();
         Lecture lecture3 =  lectureService.createNewLecture();
+        Lecture lecture4 = lectureService.createNewLecture();
     }
 }
