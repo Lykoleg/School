@@ -19,13 +19,7 @@ public class Main {
         //Homework homework1 = homeworkService.createNewHomework();
 
         LectureService lectureService = new LectureService();
-        Lecture lecture = lectureService.createNewLecture("Mathematik", course.getID());
-        Lecture lecture1 = lectureService.createNewLecture("Addition", course.getID());
-        Lecture lecture2 = lectureService.createNewLecture("Subtraction", course.getID());
-        Lecture lecture3 = lectureService.createNewLecture("Multiplication", course.getID());
-        Lecture lecture4 = lectureService.createNewLecture("Division", course.getID());
-        Lecture lecture5 = lectureService.createNewLecture("Division1", course.getID());
-        lectureService.printTotalCounter();
+
 
         StudentService studentService = new StudentService();
         Student student = studentService.createNewStudent("One name, second name");
@@ -43,6 +37,7 @@ public class Main {
         System.out.println("3. Select Teacher :");
         System.out.println("4. Select Student :");
         System.out.println("5. Select Homework :");
+        System.out.println("6. Select WorkPlus :");
 
         int category = scanner.nextInt();
         switch (category) {
@@ -128,7 +123,7 @@ public class Main {
                 System.out.println("No such category exist");
         }
         int create = 1;
-        for (;create == 1;) {
+        for (; create == 1; ) {
             System.out.println("Create Lecture");
             System.out.println("1. YES ");
             System.out.println("2. No ");
@@ -140,22 +135,7 @@ public class Main {
                     String lectureName = scanner.next();
                     lectureService.createNewLecture(lectureName, course.getID());
                     System.out.println("Lecture counter " + Lecture.getCounter());
-                /*System.out.println("Create Lecture");
-                System.out.println("1. YES ");
-                System.out.println("2. No ");
-                int create1 = scanner.nextInt();
-                switch (create) {
-                    case 1:
-                        System.out.println("enter name");
-                        String lecture1Name = scanner.next();
-                        lectureService.createNewLecture(lecture1Name, course.getID());
-                        System.out.println("Lecture counter " + Lecture.getCounter());
-                    case 2:
-                    default:
-                        System.out.println(" exit");
-                        break;
 
-                }*/
                 case 2:
                     break;
             }

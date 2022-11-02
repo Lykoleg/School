@@ -8,13 +8,11 @@ public class HomeworkService {
         Homework homework = new Homework();
         System.out.println("Course counter " + Course.getCounter());
         System.out.println("homework counter " + Homework.getCounter());
-        System.out.println(" Homework name " );
+        System.out.println(" Homework name ");
         System.out.println("--------------------------------------");
         return homework;
         // або одною строчкою:return new Homework();
     }
-    // створюємо порожній конструктор
-    //public HomeworkService() {
-    // System.out.println("Construktor HomeworkService");
 }
+
 
