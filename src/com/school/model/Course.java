@@ -1,11 +1,13 @@
-package com.school.Model;
+package com.school.model;
 
 public class Course {
     private int ID;
-    //public String name;
-    public Course() {
+    private String name;
+
+    public Course(String name) {
         counter++;
         this.ID = counter;
+      this.name = name;
     }
     static private int counter = 0;
     public int getID() {
@@ -14,6 +16,12 @@ public class Course {
     public static int getCounter() {
         return counter;
     }
+
+
+    @Override
+   public String toString(){
+    return "Course name" +      name      + getCounter();
+   }
 }
 
 

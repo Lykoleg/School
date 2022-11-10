@@ -1,8 +1,9 @@
-package com.school.Model;
+package com.school.model;
 
-public class Teacher {
+public class WorkPlus {
     private Long ID;
-    public Teacher()
+    private String name;
+    public WorkPlus(String name, int courseID)
     {counter++;
     }
     static private int counter = 0;
@@ -10,4 +11,6 @@ public class Teacher {
         return counter;
     }
 }
+
+
 

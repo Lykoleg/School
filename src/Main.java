@@ -1,6 +1,7 @@
 
-import com.school.Model.*;
-import com.school.Service.*;
+import com.school.model.*;
+import com.school.repository.*;
+import com.school.service.*;
 
 import java.util.Scanner;
 
@@ -11,26 +12,39 @@ public class Main {
         //створюємо новий курс з ім'ям Математика
         Course course = courseService.createNewCourse("Mathematics");
         //Course course1 = courseService.createNewCourse();
+        courseService.printCourses();
 
         // викликаємо конструктор HWService і зберігаємо те що він повертає в змінну
         HomeworkService homeworkService = new HomeworkService();
         // createNewHomework  повертає нове дом завдання(1,2....) в змінну homework
-        Homework homework = homeworkService.createNewHomework(" Page 1 ex 23");
+
         //Homework homework1 = homeworkService.createNewHomework();
 
         LectureService lectureService = new LectureService();
 
+        Lecture lecture = lectureService.createNewLecture("Lecture one",  course.getID());
+        Lecture lecture2 = lectureService.createNewLecture("Lecture second",   course.getID());
+        Lecture lecture3 = lectureService.createNewLecture("Lecture third",   course.getID());
+
 
         StudentService studentService = new StudentService();
-        Student student = studentService.createNewStudent("One name, second name");
+        //Student student = studentService.createNewStudent("One name, second name");
 
         TeacherService teacherService = new TeacherService();
-        Teacher teacher = teacherService.createNewTeacher("One name, second name");
+        //Teacher teacher = teacherService.createNewTeacher("One name, second name");
 
-        WorkPlusService workPlustService = new WorkPlusService();
+        WorkPlusService workPlusService = new WorkPlusService();
         //WorkPlus workPlus =  workPlusService.createNewWorkPlus("One name, second name");
 
-        Scanner scanner = new Scanner(System.in);
+
+        HomeworkRepository homeworkRepository = new HomeworkRepository();
+        LectureRepository lectureRepository = new LectureRepository();
+        StudentRepository studentRepository = new StudentRepository();
+        TeacherRepository teacherRepository = new TeacherRepository();
+        WorkPlusRepository workPlusRepository = new WorkPlusRepository();
+
+
+        /*Scanner scanner = new Scanner(System.in);
         System.out.println("Select category");
         System.out.println("1. Select Course : ");
         System.out.println("2. Select Lecture :");
@@ -138,8 +152,9 @@ public class Main {
 
                 case 2:
                     break;
+
+         */
             }
 
         }
-    }
-}
+

@@ -1,7 +1,7 @@
-package com.school.Service;
+package com.school.service;
 
 
-import com.school.Model.*;
+import com.school.model.*;
 
 public class StudentService {
     public Student createNewStudent(String name) {

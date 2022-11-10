@@ -1,6 +1,6 @@
-package com.school.Service;
+package com.school.service;
 
-import com.school.Model.*;
+import com.school.model.*;
 
 public class LectureService {
 
@@ -18,6 +18,7 @@ public class LectureService {
             //public void printTotalCounter()
             System.out.println("total lectures  = " + Lecture.getCounter());
             System.out.println("--------------------------------------");
+            System.out.println();
             return lecture;
         } else {
 

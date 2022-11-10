@@ -1,4 +1,4 @@
-package com.school.Model;
+package com.school.model;
 
 public class Lecture {
     private int ID;
