@@ -7,44 +7,42 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // ініціалізуємо змінну courseService та викликаємо конструктор
+
         CourseService courseService = new CourseService();
-        //створюємо новий курс з ім'ям Математика
+
         Course course = courseService.createNewCourse("Mathematics");
-        //Course course1 = courseService.createNewCourse();
+
         courseService.printCourses();
 
-        // викликаємо конструктор HWService і зберігаємо те що він повертає в змінну
-        HomeworkService homeworkService = new HomeworkService();
-        // createNewHomework  повертає нове дом завдання(1,2....) в змінну homework
 
-        //Homework homework1 = homeworkService.createNewHomework();
+        HomeworkService homeworkService = new HomeworkService();
+
 
         LectureService lectureService = new LectureService();
 
-        Lecture lecture = lectureService.createNewLecture("Lecture one",  course.getID());
-        Lecture lecture2 = lectureService.createNewLecture("Lecture second",   course.getID());
-        Lecture lecture3 = lectureService.createNewLecture("Lecture third",   course.getID());
+        Lecture lecture = lectureService.createNewLecture("Lecture one", course.getID());
+        Lecture lecture2 = lectureService.createNewLecture("Lecture second", course.getID());
+        Lecture lecture3 = lectureService.createNewLecture("Lecture third", course.getID());
 
 
-        StudentService studentService = new StudentService();
-        //Student student = studentService.createNewStudent("One name, second name");
+        //PersonService personService = new PersonService();
+        //Person person = personService.createNewStudent("One name, second name");
 
-        TeacherService teacherService = new TeacherService();
+        //TeacherService teacherService = new TeacherService();
         //Teacher teacher = teacherService.createNewTeacher("One name, second name");
 
         WorkPlusService workPlusService = new WorkPlusService();
-        //WorkPlus workPlus =  workPlusService.createNewWorkPlus("One name, second name");
+       // WorkPlus workPlus =  workPlusService.createNewWorkPlus("name");
 
 
         HomeworkRepository homeworkRepository = new HomeworkRepository();
         LectureRepository lectureRepository = new LectureRepository();
-        StudentRepository studentRepository = new StudentRepository();
-        TeacherRepository teacherRepository = new TeacherRepository();
+//        PersonRepository studentRepository = new PersonRepository();
+        //TeacherRepository teacherRepository = new TeacherRepository();
         WorkPlusRepository workPlusRepository = new WorkPlusRepository();
 
 
-        /*Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Select category");
         System.out.println("1. Select Course : ");
         System.out.println("2. Select Lecture :");
@@ -153,8 +151,9 @@ public class Main {
                 case 2:
                     break;
 
-         */
+                }
             }
 
         }
-
+        //Person lecture1 = new Lecture(" oneName " + oneName +"secondName" + secondName);
+    }

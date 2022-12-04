@@ -1,17 +1,17 @@
 package com.school.model;
 
-public class Homework {
-    public String name;
-    public Homework() {
-        counter++;
-        this.ID = counter;
+public class Homework extends Model{
+
+    public Homework(String name) {
+        super(name,++counter);
     }
-
-    private int ID;
     static private int counter = 0;
-
     public static int getCounter() {
         return counter;
+    }
+    @Override
+    public String toString() {
+        return "Homework name" + getName() + getID() + getCounter();
     }
 }
 

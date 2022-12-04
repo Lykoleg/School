@@ -7,7 +7,7 @@ public class LectureService {
     public Lecture createNewLecture(String name, int courseID) {
         if (Lecture.getCounter() < 8) {
 
-            Lecture lecture = new Lecture(name, courseID);
+            Lecture lecture = new Lecture(name);
             System.out.println("Course counter " + Course.getCounter());
             System.out.println("Lecture counter " + Lecture.getCounter());
             System.out.println("  Lecture name " + name + "   with course " + courseID);
@@ -16,7 +16,7 @@ public class LectureService {
 
 
             //public void printTotalCounter()
-            System.out.println("total lectures  = " + Lecture.getCounter());
+            System.out.println("total lecture  = " + Lecture.getCounter());
             System.out.println("--------------------------------------");
             System.out.println();
             return lecture;

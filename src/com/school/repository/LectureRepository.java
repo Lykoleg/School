@@ -2,29 +2,68 @@ package com.school.repository;
 
 import com.school.model.Course;
 import com.school.model.Lecture;
-import com.school.model.Student;
+import com.school.model.Model;
 
-public class LectureRepository {
-    int CAPACITY = 10;
-    int i;
+public class LectureRepository extends Repository {
+
+
     Lecture[] lectures = new Lecture[CAPACITY];
-    public void addLecture(Lecture lecture) {
-        for (i = 0; i < lectures.length; i++) {
+
+    public Lecture[] getLectures() {
+        return lectures;
+    }
+    public void add(Lecture lecture) {
+        for (int i = 0; i < lectures.length; i++) {
             if (lectures[i] == null) {
                 lectures[i] = lecture;
-                System.out.print("Lecture " + Lecture.getCounter() + Course.getCounter() + "  " + lecture);
-                break;
-            } else {
-                expandArray();
+                System.out.print(" Add lecture" + lecture);
+                return;
+            }
+        }
+        expandArray();
+        add(lecture);
+    }
+    private void expandArray() {
+        int tmpCapacity = CAPACITY;
+        CAPACITY = (CAPACITY * 3) / 2 + 1;
+        Lecture[] tmpArray = new Lecture[CAPACITY];
+        System.arraycopy(lectures, 0, tmpArray, 0, tmpCapacity);
+        lectures = tmpArray;
+    }
+    public void delete(String name) {
+        for (int i = 0; i < lectures.length; i++) {
+            if (lectures[i].getName().equals(name)) {
+                lectures[i] = null;
+                System.out.print(" Delete Arrays model " + name);
+                break;//видалення за ім'ям
+
+
             }
         }
     }
-    private void expandArray(){
-        int tmpCapacity = CAPACITY;
-        CAPACITY = (CAPACITY * 3) / 2 +1;
-        Lecture[] tmpArrayLecture = new Lecture[CAPACITY];
-        System.arraycopy(lectures,0,tmpArrayLecture,0,tmpCapacity);
-        lectures = tmpArrayLecture;
+    public void delete(int ID) {
+        for (int i = 0; i < lectures.length; i++) {
+            if (lectures[i].getID() == (ID)) {
+                String name = lectures[i].getName();
+                lectures[i] = null;
+                System.out.print(" Delete Arrays model " + name + "  " + ID);
+                break;
+            }  //видалення за ID
+
+        }
 
     }
+    public Lecture getbyid(int ID) {
+        for (int i = 0; i < lectures.length; i++) {
+            if (lectures[i].getID() == (ID)) {
+                String name = lectures[i].getName();
+                System.out.print(" GetByID lecture " + name + "  " + ID);
+                return lectures[i];
+            }  //виклик за ID
+
+        }
+        System.out.println("No lecture with this ID" + ID);
+        return null;
+    }
 }
+
