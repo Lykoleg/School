@@ -3,6 +3,7 @@ package com.school.repository;
 import com.school.model.Course;
 import com.school.model.Lecture;
 import com.school.model.Model;
+import com.school.model.Teacher;
 
 public class LectureRepository extends Repository {
 
@@ -53,11 +54,11 @@ public class LectureRepository extends Repository {
         }
 
     }
-    public Lecture getbyid(int ID) {
+    public Lecture getById(int ID) {
         for (int i = 0; i < lectures.length; i++) {
             if (lectures[i].getID() == (ID)) {
                 String name = lectures[i].getName();
-                System.out.print(" GetByID lecture " + name + "  " + ID);
+                System.out.println(lectures[i]);
                 return lectures[i];
             }  //виклик за ID
 
@@ -65,5 +66,7 @@ public class LectureRepository extends Repository {
         System.out.println("No lecture with this ID" + ID);
         return null;
     }
+
+
 }
 

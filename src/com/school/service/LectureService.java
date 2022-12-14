@@ -1,16 +1,23 @@
 package com.school.service;
 
 import com.school.model.*;
+import com.school.repository.LectureRepository;
 
 public class LectureService {
+    LectureRepository lectureRepository = new LectureRepository();
 
-    public Lecture createNewLecture(String name, int courseID) {
+
+
+    public Lecture createNewLecture(String name, String description,int personId) {
         if (Lecture.getCounter() < 8) {
 
-            Lecture lecture = new Lecture(name);
+
+            Lecture lecture = new Lecture(name,description,personId);
+            lectureRepository.add(lecture);
+
             System.out.println("Course counter " + Course.getCounter());
             System.out.println("Lecture counter " + Lecture.getCounter());
-            System.out.println("  Lecture name " + name + "   with course " + courseID);
+            System.out.println("  Lecture name " + name );
 
             System.out.println("--------------------------------------");
 
@@ -26,6 +33,14 @@ public class LectureService {
             return null;
 
         }
+    }
+    public Lecture addTeacher(int personId, int lectureId){
+        Lecture lecture=lectureRepository.getById(lectureId);
+        lecture.setPersonId(personId);
+
+
+        return lecture;
+
     }
 }
 

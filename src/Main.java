@@ -6,6 +6,7 @@ import com.school.service.*;
 import java.util.Scanner;
 
 public class Main {
+    private String oneName, secondName;
     public static void main(String[] args) {
 
         CourseService courseService = new CourseService();
@@ -13,32 +14,29 @@ public class Main {
         Course course = courseService.createNewCourse("Mathematics");
 
         courseService.printCourses();
+        String noSuchCategoryError="No such category exist";
+
 
 
         HomeworkService homeworkService = new HomeworkService();
 
 
         LectureService lectureService = new LectureService();
-
-        Lecture lecture = lectureService.createNewLecture("Lecture one", course.getID());
-        Lecture lecture2 = lectureService.createNewLecture("Lecture second", course.getID());
-        Lecture lecture3 = lectureService.createNewLecture("Lecture third", course.getID());
+        Lecture lecture = lectureService.createNewLecture("Lecture one","my lecture about France",0001);
 
 
-        //PersonService personService = new PersonService();
-        //Person person = personService.createNewStudent("One name, second name");
 
-        //TeacherService teacherService = new TeacherService();
-        //Teacher teacher = teacherService.createNewTeacher("One name, second name");
+        PersonService personService = new PersonService();
+        Person person = personService.createNewStudent("One name", 0001);
+
+
 
         WorkPlusService workPlusService = new WorkPlusService();
-       // WorkPlus workPlus =  workPlusService.createNewWorkPlus("name");
+
 
 
         HomeworkRepository homeworkRepository = new HomeworkRepository();
-        LectureRepository lectureRepository = new LectureRepository();
-//        PersonRepository studentRepository = new PersonRepository();
-        //TeacherRepository teacherRepository = new TeacherRepository();
+
         WorkPlusRepository workPlusRepository = new WorkPlusRepository();
 
 
@@ -94,7 +92,8 @@ public class Main {
                                 System.out.println("Category Lecture6 Course1");
                                 break;
                             default:
-                                System.out.println("No such category exist");
+
+                                System.out.println(noSuchCategoryError);
                         }
                         break;
                     case 2:
@@ -113,7 +112,7 @@ public class Main {
                         System.out.println("Category Course6");
                         break;
                     default:
-                        System.out.println("No such category exist");
+                        System.out.println(noSuchCategoryError);
                 }
                 break;
             case 2:
@@ -132,10 +131,10 @@ public class Main {
                 System.out.println("Category Plus Homework");
                 break;
             default:
-                System.out.println("No such category exist");
+                System.out.println(noSuchCategoryError);
         }
         int create = 1;
-        for (; create == 1; ) {
+        while ( create == 1 ) {
             System.out.println("Create Lecture");
             System.out.println("1. YES ");
             System.out.println("2. No ");
@@ -145,15 +144,16 @@ public class Main {
                 case 1:
                     System.out.println("enter name");
                     String lectureName = scanner.next();
-                    lectureService.createNewLecture(lectureName, course.getID());
+                    lectureService.createNewLecture(lectureName,"my description",0001);
                     System.out.println("Lecture counter " + Lecture.getCounter());
 
                 case 2:
                     break;
+                default:
+                    System.out.println("error");
 
                 }
             }
 
         }
-        //Person lecture1 = new Lecture(" oneName " + oneName +"secondName" + secondName);
     }

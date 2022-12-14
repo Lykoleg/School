@@ -1,9 +1,6 @@
 package com.school.repository;
 
-import com.school.model.Course;
 import com.school.model.Model;
-
-import java.lang.reflect.Array;
 
 public class Repository {
     int CAPACITY = 10;
@@ -55,6 +52,16 @@ public class Repository {
             }
         }
     }
+//    public void deleteModel(int ID){
+//        int i = 0;
+//
+//        while (models[i].getID() == (ID)) {
+//                String name = models[i].getName();
+//                models[i] = null;
+//                System.out.print(" Delete Arrays model " + name + "  " + ID);
+//                return;}
+//                i++;
+//    }
 
     public void delete(int ID) {
         for (int i = 0; i < models.length; i++) {
@@ -69,7 +76,7 @@ public class Repository {
 
     }
 
-    public Model getbyid(int ID) {
+    public Model getById(int ID) {
         for (int i = 0; i < models.length; i++) {
             if (models[i].getID() == (ID)) {
                 String name = models[i].getName();
