@@ -1,10 +1,11 @@
 package com.school.model;
 
-public class Course extends Model{
+public class Course extends Model {
 
     public Course(String name) {
-        super(name,++counter);//передає ім'я та ID в Model
+        super(name, ++counter);//передає ім'я та ID в Model
     }
+
     static private int counter = 0;
 
     public static int getCounter() {
@@ -14,8 +15,10 @@ public class Course extends Model{
 
     @Override
     public String toString() {
-
-        return "Course name" + getName() + getID() +getCounter();
+        return "Course{" +
+                ", name='" + getName() + '\'' +
+                ", courseId='" + getID() + '\'' +
+                '}';
     }
 }
 

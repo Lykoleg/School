@@ -7,153 +7,133 @@ import java.util.Scanner;
 
 public class Main {
     private String oneName, secondName;
+
     public static void main(String[] args) {
+        String noSuchCategoryError = "No such category exist";
 
         CourseService courseService = new CourseService();
-
-        Course course = courseService.createNewCourse("Mathematics");
-
-        courseService.printCourses();
-        String noSuchCategoryError="No such category exist";
-
-
-
         HomeworkService homeworkService = new HomeworkService();
-
-
         LectureService lectureService = new LectureService();
-        Lecture lecture = lectureService.createNewLecture("Lecture one","my lecture about France",0001);
-
-
-
         PersonService personService = new PersonService();
-        Person person = personService.createNewStudent("One name", 0001);
-
-
-
         WorkPlusService workPlusService = new WorkPlusService();
 
-
-
-        HomeworkRepository homeworkRepository = new HomeworkRepository();
-
-        WorkPlusRepository workPlusRepository = new WorkPlusRepository();
+        //HomeworkRepository homeworkRepository = new HomeworkRepository();
+        //WorkPlusRepository workPlusRepository = new WorkPlusRepository();
 
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select category");
-        System.out.println("1. Select Course : ");
-        System.out.println("2. Select Lecture :");
-        System.out.println("3. Select Teacher :");
-        System.out.println("4. Select Student :");
-        System.out.println("5. Select Homework :");
-        System.out.println("6. Select WorkPlus :");
+        System.out.println("1. Course : ");
+        System.out.println("2. Lecture :");
+        System.out.println("3. Person :");
+        System.out.println("4. Homework,WorkPlus :");
 
         int category = scanner.nextInt();
         switch (category) {
             case 1:
-                System.out.println("Category Course");
-                //implemented for Course1 Lecture1
-
-                System.out.println("1. Select Course1 :");
-                System.out.println("2. Select Course2 :");
-                System.out.println("3. Select Course3 :");
-                System.out.println("4. Select Course4 :");
-                System.out.println("5. Select Course5 :");
+                System.out.println("1.createNewCourse :");
+                System.out.println("2.printCourses :");
                 int categoryCourse = scanner.nextInt();
                 switch (categoryCourse) {
                     case 1:
-                        System.out.println("Category Lecture Course1");
-
-                        System.out.println("1. Select Lecture1 Course1 :");
-                        System.out.println("2. Select Lecture2 Course1 :");
-                        System.out.println("3. Select Lecture3 Course1 :");
-                        System.out.println("4. Select Lecture4 Course1 :");
-                        System.out.println("5. Select Lecture5 Course1 :");
-                        System.out.println("5. Select Lecture6 Course1 :");
-                        int categoryLectureCourse = scanner.nextInt();
-                        switch (categoryLectureCourse) {
-                            case 1:
-                                System.out.println("Category Lecture1 Course1");
-                                break;
-                            case 2:
-                                System.out.println("Category Lecture2 Course1");
-                                break;
-                            case 3:
-                                System.out.println("Category Lecture3 Course1");
-                                break;
-                            case 4:
-                                System.out.println("Category Lecture4 Course1");
-                                break;
-                            case 5:
-                                System.out.println("Category Lecture5 Course1");
-                                break;
-                            case 6:
-                                System.out.println("Category Lecture6 Course1");
-                                break;
-                            default:
-
-                                System.out.println(noSuchCategoryError);
-                        }
+                        System.out.println("1. createNewCourse :");
+                        courseService.createNewCourse();
                         break;
                     case 2:
-                        System.out.println("Category Course2");
-                        break;
-                    case 3:
-                        System.out.println("Category Course3");
-                        break;
-                    case 4:
-                        System.out.println("Category Course4");
-                        break;
-                    case 5:
-                        System.out.println("Category Course5");
-                        break;
-                    case 6:
-                        System.out.println("Category Course6");
+                        System.out.println("2. printCourses :");
+                        courseService.printCourses();
                         break;
                     default:
                         System.out.println(noSuchCategoryError);
+                        return;
                 }
-                break;
+
+
             case 2:
-                System.out.println("Category Lecture");
-                break;
-            case 3:
-                System.out.println("Category Teacher");
-                break;
-            case 4:
-                System.out.println("Category Student");
-                break;
-            case 5:
-                System.out.println("Category Homework");
-                break;
-            case 6:
-                System.out.println("Category Plus Homework");
-                break;
-            default:
-                System.out.println(noSuchCategoryError);
-        }
-        int create = 1;
-        while ( create == 1 ) {
-            System.out.println("Create Lecture");
-            System.out.println("1. YES ");
-            System.out.println("2. No ");
-            create = scanner.nextInt();
-
-            switch (create) {
-                case 1:
-                    System.out.println("enter name");
-                    String lectureName = scanner.next();
-                    lectureService.createNewLecture(lectureName,"my description",0001);
-                    System.out.println("Lecture counter " + Lecture.getCounter());
-
-                case 2:
-                    break;
-                default:
-                    System.out.println("error");
-
+                System.out.println("1. createNewLecture :");
+                System.out.println("2. addTeacher :");
+                int categoryLecture = scanner.nextInt();
+                switch (categoryLecture) {
+                    case 1:
+                        System.out.println("1. createNewLecture :");
+                        lectureService.createNewLecture();
+                        break;
+                    case 2:
+                        System.out.println("2. addTeacher :");
+                        System.out.println("enter firstName");
+                        String firstName = scanner.next();
+                        System.out.println("enter description");
+                        String description = scanner.next();
+                        System.out.println("enter personId");
+                        String personId = scanner.next();
+                        break;
+                    default:
+                        System.out.println(noSuchCategoryError);
+                        break;
                 }
-            }
+
+
+            case 3:
+                System.out.println("1.createNewStudent :");
+                System.out.println("2.createNewTeacher :");
+                int categoryPerson = scanner.nextInt();
+                switch (categoryPerson) {
+                    case 1:
+
+                        System.out.println("Category createNewStudent");
+                        personService.createNewStudent();
+                        break;
+                    case 2:
+                        System.out.println("Category createNewTeacher");
+                        personService.createNewTeacher();
+                        break;
+                    default:
+                        System.out.println(noSuchCategoryError);
+                        break;
+                }
+            case 4:
+
+                System.out.println("1.createNewHomework :");
+                System.out.println("2.createNewPlusHomework :");
+                int categor = scanner.nextInt();
+                switch (categor) {
+                    case 1:
+
+                        System.out.println("Category createNewHomework");
+                        homeworkService.createNewHomework(); //додам метод
+                        break;
+                    case 2:
+                        System.out.println("Category createNewPlusHomework");
+                        workPlusService.createNewWorkPlus(); // додам метод
+                        break;
+                    default:
+                        System.out.println(noSuchCategoryError);
+
+                        break;
+                }
+//                int create = 1;
+//                while (create == 1) {
+//                    System.out.println("Create Lecture");
+//                    System.out.println("1. YES ");
+//                    System.out.println("2. No ");
+//                    create = scanner.nextInt();
+//
+//                    switch (create) {
+//                        case 1:
+//                            System.out.println("enter name");
+//                            // String lectureName = scanner.next();
+//                            //lectureService.createNewLecture(lectureName, "my description", 0001);
+//                            System.out.println("Lecture counter " + Lecture.getCounter());
+//
+//                        case 2:
+//                            break;
+//                        default:
+//                            System.out.println("error");
+//
+//                    }
+//                }
 
         }
     }
+}
+

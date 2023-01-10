@@ -3,15 +3,19 @@ package com.school.model;
 public class Person extends Model{
     private Role role;
     private int courseId;
-    public String oneName, secondName;
-
-
+    public String firstName, lastName, phone, email;
 
 
     public Person(String name,Role role,int courseId) {
-        super(name,++counter);
+        super(name,  ++counter);
         this.role = role;
-
+    }
+    public Person(String firstName,String lastName, String phone, String email, Role role) {
+        super("", ++counter);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
     }
     static private int counter = 0;
 

@@ -3,8 +3,10 @@ package com.school.service;
 import com.school.model.*;
 import com.school.repository.CourseRepository;
 
+import java.util.Scanner;
+
 public class CourseService {
-    //public String name;
+
     CourseRepository courseRepository = new CourseRepository();
 
     public void printCourses(){
@@ -16,7 +18,12 @@ public class CourseService {
     }
 
 
-    public Course createNewCourse(String name) {
+    public Course createNewCourse() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("enter name");
+        String name = scanner.next();
+
         Course course = new Course(name);
 
         courseRepository.add(course);
