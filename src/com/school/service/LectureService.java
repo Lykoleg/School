@@ -1,12 +1,17 @@
 package com.school.service;
 
 import com.school.model.*;
+import com.school.repository.ArrayAll;
 import com.school.repository.LectureRepository;
 
 import java.util.Scanner;
 
 public class LectureService {
-    LectureRepository lectureRepository = new LectureRepository();
+    ArrayAll<Lecture> lectureRepository = new ArrayAll<>();
+    public LectureService() {
+        lectureRepository.arrayAll =new Lecture[10];
+    }
+    // конструктор для інніціалізаціі масиву ЛЕКЦІЙ в полі lectureRepository
 
 
     public Lecture createNewLecture() {
@@ -27,6 +32,7 @@ public class LectureService {
         System.out.println("  Lecture name " + name);
 
         System.out.println("--------------------------------------");
+        lectureRepository.add(lecture);
 
 
         //public void printTotalCounter()

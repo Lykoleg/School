@@ -2,10 +2,18 @@ package com.school.service;
 
 
 import com.school.model.*;
+import com.school.repository.ArrayAll;
+import com.school.repository.PersonRepository;
 
 import java.util.Scanner;
 
 public class PersonService {
+    ArrayAll<Person> pRepository = new ArrayAll<>() ;
+
+    public PersonService() {
+        pRepository.arrayAll =new Person[10];
+    }
+
     public Person createNewStudent() {
 
         Scanner scanner = new Scanner(System.in);
@@ -81,7 +89,7 @@ public class PersonService {
 
         Person person = new Person(firstName, lastName, phone, email, Person.Role.STUDENT);
         System.out.println("Student " + firstName + lastName + phone + email);
-
+        pRepository.add(person);
         System.out.println("--------------------------------------");
         return person;
     }
