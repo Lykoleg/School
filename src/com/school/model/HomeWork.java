@@ -1,8 +1,8 @@
 package com.school.model;
 
-public class Homework extends Model{
+public class HomeWork extends Model{
 
-    public Homework(String name) {
+    public HomeWork(String name) {
         super(name,++counter);
     }
     static private int counter = 0;

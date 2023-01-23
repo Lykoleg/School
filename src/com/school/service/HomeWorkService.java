@@ -1,12 +1,15 @@
 package com.school.service;
 
 import com.school.model.*;
+import com.school.repository.ArrayAll;
 
 import java.util.Scanner;
 
-public class HomeworkService {
-    //метод створення нового обєкта HomeWork
-    public Homework createNewHomework() {
+public class HomeWorkService {
+    ArrayAll<HomeWork> homeWorkArrayAll = new ArrayAll<>();
+    public HomeWorkService() {
+        homeWorkArrayAll.arrayAll =new HomeWork[10];
+    }    public HomeWork createNewHomework() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -15,7 +18,7 @@ public class HomeworkService {
         System.out.println("enter Id New Homework");
         int Id = scanner.nextInt();
 
-        Homework homework = new Homework(name);
+        HomeWork homework = new HomeWork(name);
 
 
         //System.out.println("Course counter " + Course.getCounter());

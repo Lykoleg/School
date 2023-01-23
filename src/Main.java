@@ -9,10 +9,26 @@ public class Main {
     private String oneName, secondName;
 
     public static void main(String[] args) {
+        final ArrayAll<Course> courseArrayAll= new ArrayAll<>();
+
+
+
+
+
+
+
+
         String noSuchCategoryError = "No such category exist";
 
         CourseService courseService = new CourseService();
-        HomeworkService homeworkService = new HomeworkService();
+        courseService.createNewCourse();
+        courseService.printCourses();
+        courseService.createNewCourse();
+        courseService.printCourses();
+        courseService.createNewCourse();
+        courseService.printCourses();
+
+        HomeWorkService homeworkService = new HomeWorkService();
         LectureService lectureService = new LectureService();
         PersonService personService = new PersonService();
         WorkPlusService workPlusService = new WorkPlusService();
